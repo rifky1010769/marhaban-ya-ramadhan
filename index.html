@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Selamat Puasa</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        .envelope {
+            width: 400px;
+            height: 250px;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: none; /* Awalnya disembunyikan */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .message {
+            font-size: 18px;
+            color: #34495e;
+            line-height: 1.5;
+            white-space: pre-wrap; /* Mempertahankan spasi */
+            display: none; /* Awalnya disembunyikan */
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .moon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #f1c40f;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .moon::before {
+            content: '';
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #2c3e50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button class="button" onclick="openLetter()">buka yaww</button>
+        <div class="envelope" id="envelope">
+            <div class="moon"></div>
+            <div class="header">
+                <h1>marhaban ya ramadhan</h1>
+            </div>
+            <div class="message" id="message"></div>
+            <div class="footer">
+                <p>Terima kasih,</p>
+                <p> </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('envelope').style.display = 'block'; // Menampilkan surat
+            typeMessage("Selamat menjalan kan ibadah puasa nailaa besokk.. semoga lancar selaluu yaa ibadah puasanyaa.. puasa bukan hanya menahan lapar atau haus tapi menahan sesuatu semua nya dari hal yang burukk.. semangatt terus yaaa :) ... btw mau bukber bareng gaa hehe :)");
+        }
+
+        function typeMessage(message) {
+            const messageElement = document.getElementById('message');
+            messageElement.style.display = 'block'; // Menampilkan elemen pesan
+            messageElement.innerHTML = ''; // Mengosongkan isi pesan
+            let index = 0;
+
+            function type() {
+                if (index < message.length) {
+                    messageElement.innerHTML += message.charAt(index);
+                    index++;
+                    setTimeout(type, 100); // Waktu delay antara setiap huruf
+                }
+            }
+
+            type(); // Memulai fungsi mengetik
+        }
+    </script>
+</body>
+</html>
